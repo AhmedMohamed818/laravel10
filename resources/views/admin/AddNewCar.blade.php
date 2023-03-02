@@ -1,43 +1,28 @@
-<?php
-    session_start();
-    include('conn.php');
-    include('f2.php');   
-?>
 
 <!DOCTYPE html>
         <html>
             <title>New Car Model</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('admin.admin_master')
+@section('admin')
+<meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+<link rel="stylesheet" type="text/css" href="{{asset('backend/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('backend/css/util.css')}}">
+<link href="{{asset('backend/assets/plugins/toaster/toastr.min.css')}}" rel="stylesheet" />
+  <link href="{{asset('backend/assets/plugins/nprogress/nprogress.css')}}" rel="stylesheet" />
+  <link href="{{asset('backend/assets/plugins/flag-icons/css/flag-icon.min.css')}}" rel="stylesheet"/>
+  <link href="{{asset('backend/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css')}}" rel="stylesheet" />
+  <link href="{{asset('backend/assets/plugins/ladda/ladda.min.css')}}" rel="stylesheet" />
+  <link href="{{asset('backend/assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet" />
+  <link href="{{asset('backend/assets/plugins/daterangepicker/daterangepicker.css')}}" rel="stylesheet" />
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-<!--===============================================================================================-->
-            </head>
-        <body style="background-image: url(images/i2.jpg);">
-            <div class="t-center">
+            
+        <body >
+            <!-- <div class="t-center">
                 <span class="tit2 t-center">
                     New Car
                 </span>
@@ -45,9 +30,9 @@
                 <h3 class="tit3 t-center m-b-35 m-t-2">
                     Model
                 </h3>
-            </div>
+            </div> -->
             <form class="wrap-form-reservation size22 m-l-r-auto" method="post">
-                <label class = "welcome"><?php echo "welcome " .   $_SESSION['username']?></label><br>
+                <label class = "welcome"></label><br>
                 <div class="row">
                     <div class="col-md-4">
                         <!-- Name -->
@@ -250,32 +235,33 @@
                     <input class="btn3 flex-c-m size13 txt11 trans-0-4" type = "submit" name = "logout" value = "Logout">
                 </div>
             </form>
+            @endsection
         </body>
 
         <!--===============================================================================================-->
-	<script type="text/javascript" src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/animsition/js/animsition.min.js"></script>
-    <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/bootstrap/js/popper.js"></script>
-        <script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/select2/select2.min.js"></script>
-    <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
-        <script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
-    <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/slick/slick.min.js"></script>
-        <script type="text/javascript" src="js/slick-custom.js"></script>
-    <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/parallax100/parallax100.js"></script>
-        <script type="text/javascript">
-            $('.parallax100').parallax100();
-        </script>
-    <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/countdowntime/countdowntime.js"></script>
-    <!--===============================================================================================-->
-        <script type="text/javascript" src="vendor/lightbox2/js/lightbox.min.js"></script>
-    <!--===============================================================================================-->
-        <script src="js/main.js"></script>
+<!-- <script type="text/javascript" src="{{asset('backend/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('backend/vendor/animsition/js/animsition.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('backend/vendor/bootstrap/js/popper.js')}}"></script>
+<script type="text/javascript" src="{{asset('backend/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('backend/vendor/select2/select2.min.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('backend/vendor/daterangepicker/moment.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('backend/vendor/daterangepicker/daterangepicker.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('backend/vendor/slick/slick.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('backend/js/slick-custom.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('backend/vendor/parallax100/parallax100.js')}}"></script>
+<script type="text/javascript">
+$('.parallax100').parallax100();
+</script>
+
+<script type="text/javascript" src="{{asset('backend/vendor/countdowntime/countdowntime.js')}}"></script>
+
+<script type="text/javascript" src="{{asset('backend/vendor/lightbox2/js/lightbox.min.js')}}"></script>
+
+<script src="{{asset('backend/js/main.js')}}"></script> -->
         </html>

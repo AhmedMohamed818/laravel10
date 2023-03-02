@@ -1,42 +1,23 @@
-<?php
-    
-    include('conn.php');
-    include('f3.php');   
-?>
-
 <!DOCTYPE html>
         <html>
             <title>Photos</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->
-	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/themify/themify-icons.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/lightbox2/css/lightbox.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+
 <!--===============================================================================================-->
             </head>
-        <body style="background-image: url(images/i2.jpg);">
+<link rel="stylesheet" type="text/css" href="{{asset('backend/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('backend/css/util.css')}}">
+<link href="{{asset('backend/assets/plugins/toaster/toastr.min.css')}}" rel="stylesheet" />
+  <link href="{{asset('backend/assets/plugins/nprogress/nprogress.css')}}" rel="stylesheet" />
+  <link href="{{asset('backend/assets/plugins/flag-icons/css/flag-icon.min.css')}}" rel="stylesheet"/>
+  <link href="{{asset('backend/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css')}}" rel="stylesheet" />
+  <link href="{{asset('backend/assets/plugins/ladda/ladda.min.css')}}" rel="stylesheet" />
+  <link href="{{asset('backend/assets/plugins/select2/css/select2.min.css')}}" rel="stylesheet" />
+  <link href="{{asset('backend/assets/plugins/daterangepicker/daterangepicker.css')}}" rel="stylesheet" />
+@extends('admin.admin_master')
+@section('admin')
+        <body >
             <div class="t-center">
                 <span class="tit2 t-center">
                     Modify
@@ -46,8 +27,12 @@
                     Model
                 </h3>
             </div>
-            <form class="wrap-form-reservation size22 m-l-r-auto" method = "POST" enctype="multipart/form-data">
-                <label class = "welcome"><?php echo "welcome " .   $_SESSION['username']?></label><br>
+            <form class="wrap-form-reservation size22 m-l-r-auto" method = "POST" enctype="multipart/form-data" action="{{route('store.brand')}}">
+                @csrf
+                <label class = "welcome"></label><br>
+                @if(session('success'))
+                {{session('success')}}
+                @endif
                 <div class="row">
                     <div class="col-md-4">
                         <!-- Name -->
@@ -71,7 +56,11 @@
                         </span>
 
                         <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                            <input class="bo-rad-10 sizefull txt10 p-l-20" type = "text" name = "name">
+                            <input  type = "text" name = "brand_name"  class="bo-rad-10 sizefull txt10 p-l-20">
+
+                            @error('bp')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
                         </div>
                     </div>
 
@@ -98,7 +87,7 @@
                     
                     
                    
-
+                        @endsection
                     
                     
                 </div>

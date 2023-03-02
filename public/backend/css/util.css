@@ -3132,7 +3132,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	font-family: Montserrat;
 	font-weight: 400;
 	font-size: 15px;
-	color: white;
+	color: darkblue;
 }
 
 .txt10 {
@@ -3141,12 +3141,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	font-size: 14px;
 	/* color: yellow; */
 }
-.txtkk {
-	font-family: Montserrat;
-	font-weight: 400;
-	font-size: 14px;
-	
-}
+
 
 .txt11 {
 	font-family: Montserrat;
@@ -3857,4 +3852,15 @@ label{
 	
 
 	
+}
+.btn3{
+	background: #111111;
+    border-radius: 10px;
+    margin-right: auto;
+}
+.btn3:hover{
+	
+		background-color: #ec1d25;
+		color: white;
+	  
 }
