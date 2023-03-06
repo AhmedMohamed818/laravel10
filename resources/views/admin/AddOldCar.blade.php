@@ -29,7 +29,7 @@ Modify
 Model
 </h3>
 </div>
-<form class="wrap-form-reservation size22 m-l-r-auto" method="post">
+<form class="wrap-form-reservation size22 m-l-r-auto" action="{{ route('store.old')}}" method="POST">
 <label class = "welcome"></label><br>
 <div class="row">
 <div class="col-md-4">
@@ -106,6 +106,37 @@ Model
 <input class="btn3 flex-c-m size13 txt11 trans-0-4" type = "submit" name = "update" value = "Update">
 <input class="btn3 flex-c-m size13 txt11 trans-0-4" type = "submit" name = "logout" value = "Logout">
 </div>
+<table class="table" style="color: white;">
+			<thead>
+			  <tr>
+				<th scope="col">#</th>
+				<th scope="col" style="text-align: center;">report</th>
+				<th scope="col" style="text-align: center;">details</th>
+                <th scope="col" style="text-align: center;">details</th>
+                <th scope="col" style="text-align: center;">details</th>
+                <th scope="col" style="text-align: center;">Action</th>
+			  </tr>
+			</thead>
+			<tbody>
+			@php($i =1)
+              @foreach($oldcars as $oldcar)
+              <tr>
+              <th scope="row">{{$i++}}</th>
+              <td style="text-align: center;">{{$oldcar -> id}}</td>
+              <td style="text-align: center;">{{$oldcar -> man_name}}</td>
+              <td style="text-align: center;">{{$oldcar -> model}}</td>
+              <td style="text-align: center;">{{$oldcar -> year}}</td>
+              <td style="text-align: center;">{{$oldcar -> category}}</td>
+              <td style="text-align: center;">{{$oldcar -> car_model_arabic}}</td>
+              <td style="text-align: center;"><button class="btn btn-success" type="submit" style=" border-radius: 10px;">accept</button><button class="btn btn-success" type="onclick" style=" border-radius: 10px;width: 75px;margin-left: 10px;">reject</button></td>
+              </tr>
+              <td>
+                <a href="{{url('oldcar/edit'.$oldcar->id)}}" class="btn btn-info">Edit</a>
+                <a href="" class="btn btn-danger">Delete</a>
+              </td>
+              @endforeach
+			</tbody>
+		  </table>
 
 
 </form>

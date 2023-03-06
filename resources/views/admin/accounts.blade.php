@@ -57,6 +57,9 @@
 				<th scope="col" style="text-align: center;">name</th>
 				<th scope="col" style="text-align: center;">email</th>
         <th scope="col" style="text-align: center;">create_at</th>
+        <th scope="col" style="text-align: center;">name</th>
+				<th scope="col" style="text-align: center;">email</th>
+        <th scope="col" style="text-align: center;">create_at</th>
 			  </tr>
 			</thead>
 			<tbody>
@@ -65,10 +68,17 @@
               <tr>
               <th scope="row" style="text-align: center; color:black" >{{$i++}}</th>
               <td style="text-align: center; color:black">{{$user -> id}}</td>
-              <td style="text-align: center; color:black">{{$user -> name}}</td>
+              <td style="text-align: center; color:black">{{$user -> UserName}}</td>
               <td style="text-align: center; color:black">{{$user -> email}}</td>
-              <td style="text-align: center; color:black">{{$user -> create_at}}</td>
-              <td style="text-align: center; color:black"><button class="btn btn-success" type="submit" style=" border-radius: 10px;">accept</button><button class="btn btn-success" type="onclick" style=" border-radius: 10px;width: 75px;margin-left: 10px;">reject</button></td>
+              <td style="text-align: center; color:black">{{$user -> password}}</td>
+              <td style="text-align: center; color:black">{{$user -> UserType}}</td>
+              <td style="text-align: center; color:black">{{$user -> activity}}</td>
+              <td style="text-align: center; color:black">{{$user -> CreationDate}}</td>
+              <td style="text-align: center; color:black">{{$user -> PasswordUpDate}}</td>
+              <td style="text-align: center; color:black">{{$user -> Phone}}</td>
+              <td style="text-align: center; color:black">
+              <button class="btn btn-success" type="submit" style=" border-radius: 10px;">accept</button>
+              <button class="btn btn-success" type="onclick" style=" border-radius: 10px;width: 75px;margin-left: 10px;">reject</button></td>
               </tr>
               @endforeach
 			</tbody>

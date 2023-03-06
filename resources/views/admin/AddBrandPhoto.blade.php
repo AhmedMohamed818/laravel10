@@ -27,8 +27,8 @@
                     Model
                 </h3>
             </div>
-            <form class="wrap-form-reservation size22 m-l-r-auto" method = "POST" enctype="multipart/form-data" action="{{route('store.brand')}}">
-                @csrf
+            <form  action="{{route('store.brand')}}"  method = "POST" class="wrap-form-reservation size22 m-l-r-auto"  enctype="multipart/form-data" >
+                        @csrf
                 <label class = "welcome"></label><br>
                 @if(session('success'))
                 {{session('success')}}
@@ -56,9 +56,9 @@
                         </span>
 
                         <div class="wrap-inputname size12 bo2 bo-rad-10 m-t-3 m-b-23">
-                            <input  type = "text" name = "brand_name"  class="bo-rad-10 sizefull txt10 p-l-20">
+                            <input  type = "text" name="brand_name"  class="bo-rad-10 sizefull txt10 p-l-20">
 
-                            @error('bp')
+                            @error('brand_name')
                             <span class="text-danger">{{$message}}</span>
                             @enderror
                         </div>
@@ -82,6 +82,30 @@
                         <span class="txt9" style="padding-left: 135px;">
                             <input class="btn3 flex-c-m size13 txt11 trans-0-4" type = "submit" name = "logout" value = "Save">
                         </span>
+
+                        <table class="table" style="color: white;">
+			<thead>
+			  <tr>
+				<th scope="col">#</th>
+				<th scope="col" style="text-align: center;">report</th>
+				<th scope="col" style="text-align: center;">details</th>
+			  </tr>
+			</thead>
+			<tbody>
+			@php($i =1)
+              @foreach($brands as $brand)
+              <tr>
+              <th scope="row">{{$brands->firstIten()+$loop->index}}</th>
+              <td style="text-align: center;">{{$brands->id }}</td>
+              <td style="text-align: center;">{{$brands->photos }}</td>
+              <td style="text-align: center;">{{$brands->name }}</td>
+              <!-- <td style="text-align: center;">{{$brands -> create_at}}</td> -->
+              <td style="text-align: center;"><button class="btn btn-success" type="submit" style=" border-radius: 10px;">accept</button><button class="btn btn-success" type="onclick" style=" border-radius: 10px;width: 75px;margin-left: 10px;">reject</button></td>
+              </tr>
+              @endforeach
+			</tbody>
+		  </table>
+          {{$newcars->links()}}
 
                         
                     
